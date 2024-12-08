@@ -1,0 +1,110 @@
+\documentclass[a4paper,fontsize=10.5bp]{ltjsarticle}
+
+\usepackage{geometry}
+\usepackage{anyfontsize}
+\usepackage{luatexja}
+\usepackage{fontspec}
+\usepackage{fontsize}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{txfonts}
+\usepackage{tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\usepackage{subcaption}
+\usepackage{pdfpages}
+\usepackage{bm}
+
+\captionsetup[subfigure]{labelformat=simple}
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\geometry{margin=24mm} % 上下左右24mm(2.4cm)の余白
+\titleformat{\section}[hang]{\large\bfseries}{\sf\thesection.}{1\zw}{}
+\titleformat{\subsection}[hang]{\normalsize\bfseries}{\sf\thesubsection.}{1\zw}{}
+\renewcommand{\refname}{\fontsize{10.5bp}{14bp}\selectfont ＜参考文献＞}
+\captionsetup[figure]{format=plain, labelformat=simple, labelsep=period, font=footnotesize}
+% \captionsetup[table]{format=plain, labelformat=simple, labelsep=period, font={sc, footnotesize}}
+
+%%% 自作表紙
+
+\makeatletter
+\newcommand{\thema}{\gdef\@thema}
+\thema{}
+\makeatother
+\makeatletter
+\newcommand{\dateexp}{\gdef\@dateexp}
+\dateexp{}
+\makeatother
+\makeatletter
+\newcommand{\datesub}{\gdef\@datesub}
+\datesub{}
+\makeatother
+\makeatletter
+\newcommand{\affiliation}{\gdef\@affiliation}
+\datesub{}
+\makeatother
+\makeatletter
+\newcommand{\group}{\gdef\@group}
+\datesub{}
+\makeatother
+\makeatletter
+\newcommand{\coauthor}{\gdef\@coauthor}
+\datesub{}
+\makeatother
+
+\makeatletter
+\renewcommand{\maketitle}{
+  \begin{center}\huge\raggedright
+    {\@title}\\
+    \vspace{1.5cm}
+    {題目　　　　　\@thema}\\
+    \vspace{0.5cm}
+    {実験日　　　　\@dateexp}\\
+    \vspace{0.5cm}
+    {報告書提出日　\@datesub}\\
+    \vspace{1.5cm}
+    {\@affiliation}\\
+    \vspace{0.5cm}
+    {\@group}\\
+    \vspace{1.5cm}
+    {報告者　　　\@author}\\
+    \vspace{0.5cm}
+    {共同実験者　\@coauthor}\\
+  \end{center}
+  \newpage
+}
+\makeatother
+
+\title{これが俺のテンプレート}
+\thema{題目を書け}
+\dateexp{今日}
+\datesub{明日}
+\affiliation{何とか大学}
+\group{X班}
+\author{俺太郎}
+\coauthor{他太郎}
+
+%%%
+
+\begin{document}
+
+% \includepdf{xxx.pdf} % 表紙が配布されてるならpdfで読み込む
+\maketitle % 上で作った表紙がここに表示
+\input{chapters/1.tex}
+\input{chapters/2.tex}
+\input{chapters/3.tex}
+% \input{chapters/4.tex}
+% \input{chapters/5.tex}
+% \input{chapters/6.tex}
+
+%%%% 参考文献
+% \begin{thebibliography}{9}
+% \vspace{-2mm} 
+% \bibitem{sankou}参考文献だよ，(2024)
+% \end{thebibliography}
+
+\end{document}
